@@ -6,6 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/2025-ts-task-2/',
   plugins: [vue(), vueDevTools()],
   resolve: {
     alias: {
@@ -14,14 +15,14 @@ export default defineConfig({
   },
   build: {
     target: 'esnext',
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
-      },
-      output: {
-        dir: resolve(__dirname, 'dist'),
-      },
-    },
+    // rollupOptions: {
+    //   input: {
+    //     main: resolve(__dirname, 'index.html'),
+    //   },
+    //   output: {
+    //     dir: resolve(__dirname, 'dist'),
+    //   },
+    // },
   },
   css: {
     preprocessorOptions: {
