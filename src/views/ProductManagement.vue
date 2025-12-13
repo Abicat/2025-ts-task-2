@@ -90,6 +90,9 @@ const tempProduct = ref<ProductData>(getInitialProductData())
 const openModal = (product: ProductData | null = null) => {
   if (product) {
     tempProduct.value = { ...product, imagesUrl: product.imagesUrl ? [...product.imagesUrl] : [''] }
+  } else {
+    // 新增模式：重置 tempProduct 為初始狀態
+    tempProduct.value = getInitialProductData()
   }
 
   productModalRef.value?.openModal()
