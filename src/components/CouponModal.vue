@@ -29,7 +29,7 @@ watch(
   (newCoupon) => {
     tempCoupon.value = { ...newCoupon }
   },
-  { immediate: true }
+  { immediate: true },
 )
 
 // HTMLElement
@@ -77,7 +77,11 @@ const handleSave = () => {
 const handleDateChange = (e: Event) => {
   const target = e.target as HTMLInputElement
 
-  tempCoupon.value.due_date = new Date(target.value).getTime() / 1000
+  if (target.value) {
+    tempCoupon.value.due_date = new Date(target.value).getTime() / 1000
+  } else {
+    tempCoupon.value.due_date = null
+  }
 }
 
 defineExpose({
@@ -143,7 +147,7 @@ defineExpose({
             <div class="mb-3">
               <label for="couponEndDate" class="form-label">截止日</label>
               <input
-                :value="formatDate(tempCoupon.due_date)"
+                :value="tempCoupon.due_date ? formatDate(tempCoupon.due_date) : ''"
                 @change="handleDateChange"
                 type="date"
                 class="form-control rounded-lg"

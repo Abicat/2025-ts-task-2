@@ -122,11 +122,11 @@ const deleteCoupon = async (couponId: string) => {
             </tr>
           </thead>
           <tbody>
-            <tr v-for="coupon in coupons" :key="coupon.due_date">
+            <tr v-for="coupon in coupons" :key="coupon.id">
               <td>{{ coupon.title }}</td>
               <td>{{ coupon.code }}</td>
               <td>{{ coupon.percent }} %</td>
-              <td>{{ formatDate(coupon.due_date) }}</td>
+              <td>{{ coupon.due_date ? formatDate(coupon.due_date) : '-' }}</td>
               <td class="text-center">
                 <div
                   class="form-check form-switch d-flex justify-content-center align-items-center"
